@@ -177,9 +177,9 @@ void reactiveFade(led_t *ledColors) {
       animatedPressedBuf[i] -= 5;
       hsv2rgb(100 - animatedPressedBuf[i], 255, 225, &ledColors[i]);
     } else if (animatedPressedBuf[i] > 0) {
-      ledColors[i].p.blue = 0;
-      ledColors[i].p.red = 0;
-      ledColors[i].p.green = 0;
+      ledColors[i].p.blue = 0x99;
+      ledColors[i].p.red = 0x80;
+      ledColors[i].p.green = 0xff;
       animatedPressedBuf[i] = 0;
     }
   }
@@ -188,9 +188,9 @@ void reactiveFade(led_t *ledColors) {
 void reactiveFadeKeypress(led_t *ledColors, uint8_t row, uint8_t col) {
   int i = row * NUM_COLUMN + col;
   animatedPressedBuf[i] = 100;
-  ledColors[i].p.green = 0;
-  ledColors[i].p.red = 0xFF;
-  ledColors[i].p.blue = 0;
+  ledColors[i].p.green = 0xff;
+  ledColors[i].p.red = 0x80;
+  ledColors[i].p.blue = 0x99;
 }
 
 void reactiveFadeInit(led_t *ledColors) {
